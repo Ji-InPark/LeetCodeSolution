@@ -10,11 +10,14 @@
  */
 class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        int size = 0;
+        HashMap<Integer, ListNode> map = new HashMap<Integer, ListNode>();
         ListNode first = head;
-        while(head != null)
+        int size = 0;
+        
+        for(int i = 0; head != null; i++)
         {
             size++;
+            map.put(i, head);
             head = head.next;
         }
         
@@ -23,16 +26,11 @@ class Solution {
         
         if(size - n == 0)
             return first.next;
+
+        head = map.get(size - n - 1);
         
-        head = first;
+        head.next = head.next.next;
         
-        for(int i = 0; i < size - n - 1; i++)
-        {
-            first = first.next;
-        }
-        
-        first.next = first.next.next;
-        
-        return head;
+        return first;
     }
 }
