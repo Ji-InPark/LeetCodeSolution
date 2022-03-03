@@ -13,9 +13,7 @@ class Solution {
             {
                 if(last - first + 1 >= 3)
                 {
-                    System.out.println("i: " + i + " | first: " + first + " | last: " + last);
                     result += calc(last - first + 1);
-                    System.out.println("result: " + result);
                 }
                     
                 first = i;
