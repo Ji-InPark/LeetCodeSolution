@@ -5,7 +5,7 @@ class Solution {
         for(int i = 2; i <= n; i++)
         {
             int space = (i - 1) * 2 + 1;
-            result = result * (space * (space + 1) / 2);
+            result *= (space * (space + 1) / 2);
             result %= mod;
         }
         
