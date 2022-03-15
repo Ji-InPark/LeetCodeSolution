@@ -1,15 +1,15 @@
 class Solution {
     public String minRemoveToMakeValid(String input) {
-        String[] arr = input.split("");
-        boolean[] valid = new boolean[arr.length];
+        boolean[] valid = new boolean[input.length()];
         Stack<Integer> s = new Stack<Integer>();
-        for(int i = 0; i < arr.length; i++)
+        for(int i = 0; i < input.length(); i++)
         {
-            if(arr[i].equals("("))
+            char now = input.charAt(i);
+            if(now == '(')
             {
                 s.push(i);
             }
-            else if(arr[i].equals(")"))
+            else if(now == ')')
             {
                 if(!s.isEmpty())
                     valid[i] = valid[s.pop()] = true;
@@ -21,10 +21,10 @@ class Solution {
         }
         
         StringBuilder sb = new StringBuilder();
-        for(int i = 0; i < arr.length; i++)
+        for(int i = 0; i < input.length(); i++)
         {
             if(valid[i])
-                sb.append(arr[i]);
+                sb.append(input.charAt(i));
         }
         
         return sb.toString();
