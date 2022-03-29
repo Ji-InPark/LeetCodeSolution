@@ -1,6 +1,6 @@
 class Solution {
     public int findDuplicate(int[] nums) {
-        boolean[] count = new boolean[100005];
+        boolean[] count = new boolean[nums.length];
         
         for(int num : nums)
         {
