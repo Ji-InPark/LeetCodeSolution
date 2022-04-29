@@ -5,7 +5,7 @@ class Solution {
         
         for(int a = 0; a < graph.length; a++)
         {
-            if(graph[a].length > 0 && !map.containsKey(a))
+            if(!map.containsKey(a))
             {
                 q.add(a);
                 
