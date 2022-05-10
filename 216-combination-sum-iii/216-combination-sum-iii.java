@@ -11,6 +11,8 @@ class Solution {
     
     public void solve(int k, int num, int sum, Stack<Integer> s)
     {
+        if(k < 0) return;
+        
         if(sum > n) return;
         
         if(sum == n)
