@@ -19,8 +19,6 @@ class MyCalendar {
         
         if(s != -1 && start <= map.get(s)) return false;
         
-        if(e != -1 && end <= map.get(e)) return false;
-        
         map.put(start, end);
         
         return true;
