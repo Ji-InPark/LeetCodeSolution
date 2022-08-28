@@ -14,8 +14,6 @@ class Solution {
             for(int i = 0; i < size - 1; i++) {
                 Point qnow = q.poll(), pqnow = pq.poll();
                 
-                //System.out.print(pqnow.value + " ");
-                
                 result[qnow.y][qnow.x] = pqnow.value;
                 
                 if(qnow.x - 1 >= 0) {
@@ -25,8 +23,6 @@ class Solution {
             
             Point qnow = q.poll(), pqnow = pq.poll();
             
-            //System.out.println(pqnow.value + " ");
-                
             result[qnow.y][qnow.x] = pqnow.value;
 
             if(qnow.x - 1 >= 0) {
