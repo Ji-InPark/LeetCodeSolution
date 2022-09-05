@@ -1,8 +1,6 @@
 class Solution {
     public List<List<Integer>> levelOrder(Node root) {
-        if(root == null) {
-            return new ArrayList<>();
-        }
+        if(root == null) return new ArrayList<>();
         
         Queue<Node> q = new LinkedList<>();
         q.add(root);
