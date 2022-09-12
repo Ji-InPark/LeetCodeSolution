@@ -3,10 +3,6 @@ class Solution {
         int left = 0, right = tokens.length - 1, score = 0;
         Arrays.sort(tokens);
         
-        if(tokens.length == 1) {
-            return tokens[0] <= power ? 1 : 0;
-        }
-        
         while(left <= right) {
             while(left <= right && power >= tokens[left]) {
                 power -= tokens[left++];
