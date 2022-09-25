@@ -1,6 +1,5 @@
 class MyCircularQueue {
-    Queue<Integer> q = new LinkedList<>();
-    int rear;
+    Deque<Integer> q = new ArrayDeque<>();
     int size;
     
     public MyCircularQueue(int k) {
@@ -13,7 +12,6 @@ class MyCircularQueue {
         }
         
         q.add(value);
-        rear = value;
         
         return true;
     }
@@ -33,7 +31,7 @@ class MyCircularQueue {
     }
     
     public int Rear() {
-        return isEmpty() ? -1 : rear;
+        return isEmpty() ? -1 : q.peekLast();
     }
     
     public boolean isEmpty() {
