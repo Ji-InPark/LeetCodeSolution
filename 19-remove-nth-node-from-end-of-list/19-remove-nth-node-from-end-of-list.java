@@ -8,11 +8,16 @@ class Solution {
         
         arr.remove(arr.size() - n);
         
-        for(int i = 0; i < arr.size() - 1; i++) {
-            arr.get(i).next = arr.get(i + 1);
-        }
-        if(!arr.isEmpty()) arr.get(arr.size() - 1).next = null;
+        if(arr.isEmpty()) return null;
         
-        return arr.isEmpty() ? null : arr.get(0);
+        if(arr.size() > 1) {
+            if(n == 1) arr.get(arr.size() - n).next = null;
+            else if(n == arr.size() + 1) return arr.get(0);
+            else arr.get(arr.size() - n).next = arr.get(arr.size() - n + 1);
+        } else {
+            arr.get(0).next = null;
+        }
+        
+        return arr.get(0);
     }
 }
