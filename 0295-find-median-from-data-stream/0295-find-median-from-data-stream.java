@@ -12,13 +12,6 @@ class MedianFinder {
         
         if(small == null && big == null) {
             spq.add(num);
-        } else if(small == null) {
-            if(big <= num) {
-                spq.add(bpq.poll());
-                bpq.add(num);
-            } else {
-                spq.add(num);
-            }
         } else {
             if(small >= num) {
                 bpq.add(spq.poll());
