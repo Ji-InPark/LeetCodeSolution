@@ -1,23 +1,30 @@
 class Solution {
     public int countNodes(TreeNode root) {
-        int result = 0;
-        Queue<TreeNode> q = new LinkedList<>();
-        q.add(root);
+        int left = leftHeight(root);
+        int right = rightHeight(root);
         
-        while(!q.isEmpty()){
-            int size = q.size();
-            for(int i = 0; i < size; i++) {
-                var node = q.poll();
-                
-                if(node == null) continue;
-                
-                result++;
-                
-                q.add(node.left);
-                q.add(node.right);
-            }
+        if(left == right) return (1 << left) - 1;
+        
+        return 1 + countNodes(root.left) + countNodes(root.right);
+    }
+    
+    public int leftHeight(TreeNode root) {
+        int depth = 0;
+        while(root != null) {
+            depth++;
+            root = root.left;
         }
         
-        return result;
+        return depth;
+    }
+    
+    public int rightHeight(TreeNode root) {
+        int depth = 0;
+        while(root != null) {
+            depth++;
+            root = root.right;
+        }
+        
+        return depth;
     }
 }
