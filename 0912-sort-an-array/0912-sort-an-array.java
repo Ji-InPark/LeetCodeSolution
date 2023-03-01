@@ -1,7 +1,8 @@
 class Solution {
-    int[] arr;
+    int[] arr, tArr;
     public int[] sortArray(int[] nums) {
         arr = nums;
+        tArr = new int[nums.length];
         sort(0, nums.length - 1);
         return arr;
     }
@@ -22,10 +23,9 @@ class Solution {
     }
     
     public void merge(int ls, int le, int rs, int re) {
-        var tArr = new int[re - ls + 1];
         int li = ls, ri = rs;
         
-        for(int i = 0; i < tArr.length; i++) {
+        for(int i = 0; i < re - ls + 1; i++) {
             if(li <= le && ri <= re) 
                 tArr[i] = arr[arr[li] < arr[ri] ? li++ : ri++];
             else if(li > ls && ri <= re) 
@@ -34,6 +34,6 @@ class Solution {
                 tArr[i] = arr[li++];
         }
         
-        for(int i = 0; i < tArr.length; i++) arr[ls + i] = tArr[i];
+        for(int i = 0; i < re - ls + 1; i++) arr[ls + i] = tArr[i];
     }
 }
