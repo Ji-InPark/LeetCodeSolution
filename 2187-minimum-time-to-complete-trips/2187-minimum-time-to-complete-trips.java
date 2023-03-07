@@ -1,10 +1,6 @@
 class Solution {
     public long minimumTime(int[] time, int totalTrips) {
-        long max = 0;
-        for(var t : time) max = Math.max(max, t);
-        max *= totalTrips;
-        
-        long left = 0, right = max;
+        long left = 0, right = 100000000000000l;
         
         while(left < right) {
             long mid = left + (right - left) / 2;
