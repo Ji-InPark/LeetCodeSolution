@@ -1,6 +1,6 @@
 class Trie {
     Trie[] tries = new Trie[26];
-    boolean hasValue = false, isEnd = false;
+    boolean isEnd = false;
 
     public void insert(String word) {
         if(word.isEmpty()) {
@@ -12,11 +12,10 @@ class Trie {
         
         if(tries[index] == null) tries[index] = new Trie();
         tries[index].insert(word.substring(1));
-        hasValue = true;
     }
     
     public boolean search(String word) {
-        if(word.isEmpty()) return !hasValue || isEnd;
+        if(word.isEmpty()) return isEnd;
         
         int index = word.charAt(0) - 'a';
         
