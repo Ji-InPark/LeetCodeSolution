@@ -14,7 +14,7 @@ class Solution {
             for(int j = 0; j < 3; j++) {
                 int beforeDay = Math.max(day - ranges[j], 0), cost = costs[j];
                 
-                if(!set.contains(day) || pre > day) {
+                if(!set.contains(day)) {
                     dp[day] = dp[pre];
                     continue;
                 }
