@@ -5,7 +5,8 @@ class Solution {
         this.strs = strs;
         
         for(int i = 0; i < strs.length; i++) {
-            map.put(strs[i], Math.min(i, map.getOrDefault(strs[i], 1000)));
+            if(map.containsKey(strs[i])) continue;
+            map.put(strs[i], i);
             solve(strs[i], map.get(strs[i]));
         }
         
