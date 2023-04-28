@@ -1,25 +1,23 @@
 class Solution {
-    HashMap<String, Integer> map = new HashMap<>();
+    HashSet<String> set = new HashSet<>();
     String[] strs;
     public int numSimilarGroups(String[] strs) {
         this.strs = strs;
+        int result = 0;
         
-        for(int i = 0; i < strs.length; i++) {
-            if(map.containsKey(strs[i])) continue;
-            map.put(strs[i], i);
-            solve(strs[i], map.get(strs[i]));
+        for(var str: strs) {
+            if(set.contains(str)) continue;
+            set.add(str);
+            solve(str);
+            result++;
         }
         
-        var set = new HashSet<Integer>();
-        
-        for(var str: strs) set.add(map.get(str));
-        
-        return set.size();
+        return result;
     }
     
-    private void solve(String str1, int count) {
+    private void solve(String str1) {
         for(var str2: strs) {
-            if(map.containsKey(str2)) continue;
+            if(set.contains(str2)) continue;
             
             var arr1 = str1.toCharArray();
             var arr2 = str2.toCharArray();
@@ -30,8 +28,8 @@ class Solution {
             }
             
             if(diff == 2) {
-                map.put(str2, count);
-                solve(str2, count);
+                set.add(str2);
+                solve(str2);
             }
         }
     }
