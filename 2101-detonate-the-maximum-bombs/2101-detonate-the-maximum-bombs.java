@@ -10,7 +10,7 @@ class Solution {
             
             result = Math.max(result, dfsSet.size());
             
-            for(var num : dfsSet) set.add(num);
+            set.addAll(dfsSet);
         }
         
         return result;
