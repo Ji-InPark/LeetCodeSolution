@@ -4,22 +4,22 @@ class Solution {
         if(graph == null || graph.length == 0)  return res;
         
         int nodeCount = graph.length;
-        int[] color = new int[nodeCount];
+        var isSafe = new Boolean[nodeCount];
         
         for(int i = 0;i < nodeCount;i++){
-            if(dfs(graph, i, color))    res.add(i);
+            if(dfs(graph, i, isSafe))    res.add(i);
         }
         
         return res;
     }
-    public boolean dfs(int[][] graph, int start, int[] color){
-        if(color[start] != 0)   return color[start] == 1;
+    public boolean dfs(int[][] graph, int start, Boolean[] isSafe){
+        if(isSafe[start] != null)   return isSafe[start];
         
-        color[start] = 2;
+        isSafe[start] = false;
         for(int newNode : graph[start]){
-            if(!dfs(graph, newNode, color))    return false;
+            if(!dfs(graph, newNode, isSafe))    return false;
         }
-        color[start] = 1;
+        isSafe[start] = true;
         
         return true;
     }
